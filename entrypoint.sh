@@ -33,8 +33,8 @@ if [ -z "$CLOUDFLARE_ZONE" ]; then
 fi
 
 # If URL array is passed, only purge those. Otherwise, purge everything.
-if [ -n "$PURGE_URLS" ]; then
-  set -- --data '{"files":'"${PURGE_URLS}"'}'
+if [ -n "$SUBDOMAINS" ]; then
+  set -- --data '{"hosts":'"${SUBDOMAINS}"'}'
 else
   set -- --data '{"purge_everything":true}'
 fi
